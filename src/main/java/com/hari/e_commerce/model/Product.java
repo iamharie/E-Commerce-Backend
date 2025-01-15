@@ -23,16 +23,18 @@ public class Product {
     private String brand;
     private BigDecimal price;
     private String category;
-
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date releaseDate;
     private boolean availability;
     private int quantity;
-
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageData;
 
     public Product(){
     }
-    public Product(int id, String name, String description, String brand, BigDecimal price, String category, Date releaseDate, boolean availability, int quantity) {
+    public Product(int id, String name, String description, String brand, BigDecimal price, String category, Date releaseDate, boolean availability, int quantity,String imageName, String imageType, byte[] imageData) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -42,6 +44,11 @@ public class Product {
         this.releaseDate = releaseDate;
         this.availability = availability;
         this.quantity = quantity;
+
+        //image
+        this.imageName = imageName;
+        this.imageType = imageType;
+        this.imageData = imageData;
     }
 
 
@@ -116,6 +123,32 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    //Image Getter and Setters
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
     }
 
     @Override
